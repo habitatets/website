@@ -1,0 +1,948 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="color-scheme" content="light only">
+<meta name="theme-color" content="#FAF5EC">
+<title>Cosa facciamo — Habitat ETS</title>
+<meta name="description" content="I progetti di Habitat ETS: riattivazione del patrimonio culturale, HBT Open Air, Villa Levi, Rediscover. Rigenerazione urbana attraverso la progettazione culturale a Reggio Emilia.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Outfit:wght@300..700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    color-scheme: only light;
+    --cream: #FAF5EC;
+    --cream-deep: #F2EADB;
+    --ink: #0F0B06;
+    --ink-title: #0A0705;
+    --ink-soft: #3A3028;
+    --muted: #7A6F62;
+    --orange: #E8551F;
+    --orange-deep: #C2420F;
+    --sage: #8FA088;
+    --sage-deep: #5E6F57;
+    --clay: #D97A3E;
+    --line: rgba(15, 11, 6, 0.12);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Outfit', -apple-system, sans-serif;
+    font-weight: 400;
+    color: var(--ink);
+    background: var(--cream);
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    padding: 20px 48px;
+    background: rgba(250, 245, 236, 0.88);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--line);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .logo {
+    font-family: 'Fraunces', serif;
+    font-weight: 500;
+    font-size: 22px;
+    letter-spacing: -0.02em;
+    color: var(--ink);
+    text-decoration: none;
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+  }
+
+  .logo-mark {
+    display: inline-block;
+    width: 10px; height: 10px;
+    background: var(--orange);
+    border-radius: 50%;
+  }
+
+  .logo-ets {
+    font-family: 'Outfit', sans-serif;
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    color: var(--muted);
+    text-transform: uppercase;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 32px;
+    list-style: none;
+    align-items: center;
+  }
+
+  .nav-links a {
+    font-size: 14px;
+    font-weight: 400;
+    color: var(--ink-soft);
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+
+  .nav-links a:hover,
+  .nav-links a.active { color: var(--orange); }
+
+  .nav-links .external::after {
+    content: ' ↗';
+    font-size: 11px;
+    color: var(--muted);
+  }
+
+  .nav-lang {
+    font-size: 11px;
+    color: var(--muted);
+    letter-spacing: 0.1em;
+    padding-left: 20px;
+    border-left: 1px solid var(--line);
+  }
+
+  .mobile-toggle { display: none; }
+
+  /* PAGE HEADER */
+  .page-header {
+    padding: 180px 48px 100px;
+    position: relative;
+    overflow: hidden;
+    background: var(--cream);
+  }
+
+  .page-header-blob-1 {
+    position: absolute;
+    top: -5%; right: -15%;
+    width: 600px; height: 600px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 30% 30%, rgba(232, 85, 31, 0.22), transparent 70%);
+    filter: blur(50px);
+    pointer-events: none;
+    animation: blobFloat 24s ease-in-out infinite;
+  }
+
+  .page-header-blob-2 {
+    position: absolute;
+    bottom: -30%; left: -10%;
+    width: 450px; height: 450px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 70% 40%, rgba(143, 160, 136, 0.28), transparent 70%);
+    filter: blur(60px);
+    pointer-events: none;
+    animation: blobFloat 28s ease-in-out infinite reverse;
+  }
+
+  @keyframes blobFloat {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    50% { transform: translate(-30px, 20px) scale(1.06); }
+  }
+
+  .page-header-label {
+    position: relative;
+    z-index: 1;
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    color: var(--orange);
+    font-weight: 600;
+    text-transform: uppercase;
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .page-header-label::before {
+    content: '';
+    width: 20px; height: 1px;
+    background: var(--orange);
+  }
+
+  .page-title {
+    position: relative;
+    z-index: 1;
+    font-family: 'Fraunces', 'Times New Roman', serif;
+    font-weight: 500;
+    font-size: clamp(56px, 8vw, 120px);
+    line-height: 1.02;
+    letter-spacing: -0.01em;
+    color: var(--ink-title);
+    max-width: 1100px;
+    margin-bottom: 32px;
+  }
+
+  .page-title em {
+    font-style: italic;
+    font-weight: 400;
+    color: var(--orange);
+  }
+
+  .page-subtitle {
+    position: relative;
+    z-index: 1;
+    font-size: clamp(18px, 1.5vw, 22px);
+    line-height: 1.5;
+    color: var(--ink-soft);
+    max-width: 720px;
+    font-weight: 400;
+  }
+
+  /* SECTION */
+  section {
+    padding: 100px 48px;
+    position: relative;
+  }
+
+  .section-label {
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    color: var(--orange);
+    font-weight: 600;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .section-label::before {
+    content: '';
+    width: 20px; height: 1px;
+    background: var(--orange);
+  }
+
+  .section-title {
+    font-family: 'Fraunces', 'Times New Roman', serif;
+    font-weight: 500;
+    font-size: clamp(42px, 5.5vw, 76px);
+    line-height: 1.05;
+    letter-spacing: -0.01em;
+    max-width: 900px;
+    color: var(--ink-title);
+  }
+
+  .section-title em {
+    font-style: italic;
+    font-weight: 400;
+    color: var(--orange);
+  }
+
+  /* BUTTONS */
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 16px 28px;
+    font-family: inherit;
+    font-size: 15px;
+    font-weight: 500;
+    text-decoration: none;
+    border-radius: 100px;
+    transition: all 0.3s cubic-bezier(.4,.0,.2,1);
+    cursor: pointer;
+    border: none;
+    letter-spacing: -0.01em;
+  }
+
+  .btn-primary {
+    background: var(--ink);
+    color: var(--cream);
+  }
+  .btn-primary:hover {
+    background: var(--orange);
+    transform: translateY(-2px);
+  }
+
+  .btn-secondary {
+    background: transparent;
+    color: var(--ink);
+    border: 1.5px solid var(--ink);
+  }
+  .btn-secondary:hover {
+    background: var(--ink);
+    color: var(--cream);
+    transform: translateY(-2px);
+  }
+
+  /* PROJECT BLOCKS (uno per progetto, alternati) */
+  .project-block {
+    padding: 100px 48px;
+    position: relative;
+    overflow: hidden;
+    border-top: 1px solid var(--line);
+  }
+
+  .project-block.cream-deep { background: var(--cream-deep); }
+  .project-block.sage-soft { background: linear-gradient(135deg, #EDF0E8 0%, #DCE3D5 100%); }
+  .project-block.clay-soft { background: linear-gradient(135deg, #F5EADB 0%, #E8D9C0 100%); }
+  .project-block.warm-soft { background: linear-gradient(135deg, #F2D8B8 0%, #E8B98A 100%); }
+
+  .project-block::before {
+    content: '';
+    position: absolute;
+    top: -20%; right: -10%;
+    width: 500px; height: 500px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(232, 85, 31, 0.22), transparent 70%);
+    filter: blur(60px);
+    pointer-events: none;
+  }
+
+  .project-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    max-width: 1400px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+    align-items: start;
+  }
+
+  .project-info .section-label { margin-bottom: 28px; }
+
+  .project-info h2 {
+    font-family: 'Fraunces', 'Times New Roman', serif;
+    font-weight: 500;
+    font-size: clamp(46px, 6vw, 80px);
+    line-height: 1.02;
+    letter-spacing: -0.01em;
+    color: var(--ink-title);
+    margin-bottom: 32px;
+  }
+
+  .project-info h2 em {
+    font-style: normal;
+    color: var(--orange);
+  }
+
+  .project-intro {
+    font-size: 19px;
+    line-height: 1.55;
+    color: var(--ink-soft);
+    margin-bottom: 32px;
+  }
+
+  .project-body {
+    font-size: 16px;
+    line-height: 1.7;
+    color: var(--ink-soft);
+  }
+
+  .project-body p { margin-bottom: 20px; }
+  .project-body p:last-child { margin-bottom: 0; }
+  .project-body strong { color: var(--ink-title); font-weight: 600; }
+
+  .project-facts {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0;
+    background: transparent;
+    border-top: 1px solid var(--line);
+  }
+
+  .fact-row {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 32px;
+    padding: 24px 0;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .fact-label {
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    color: var(--muted);
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+
+  .fact-value {
+    font-size: 16px;
+    color: var(--ink-title);
+    font-weight: 500;
+    line-height: 1.4;
+  }
+
+  .fact-value.big {
+    font-family: 'Fraunces', 'Times New Roman', serif;
+    font-weight: 500;
+    font-size: 40px;
+    line-height: 1;
+    letter-spacing: 0;
+    color: var(--orange);
+  }
+
+  /* NAVIGATION TOC */
+  .toc-section {
+    background: var(--cream);
+    border-top: 1px solid var(--line);
+    padding: 60px 48px;
+  }
+
+  .toc-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+
+  .toc-item {
+    padding: 24px 0;
+    border-top: 1px solid var(--line);
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    transition: all 0.3s ease;
+  }
+
+  .toc-item:hover { border-top-color: var(--orange); }
+
+  .toc-num {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-size: 14px;
+    color: var(--orange);
+  }
+
+  .toc-title {
+    font-family: 'Fraunces', 'Times New Roman', serif;
+    font-weight: 500;
+    font-size: 22px;
+    color: var(--ink-title);
+    letter-spacing: 0;
+    line-height: 1.1;
+  }
+
+  .toc-meta {
+    font-size: 12px;
+    color: var(--muted);
+    letter-spacing: 0.05em;
+  }
+
+  /* FOOTER */
+  footer {
+    background: var(--ink);
+    color: var(--cream);
+    padding: 80px 48px 40px;
+  }
+
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 80px;
+    margin-bottom: 60px;
+  }
+
+  .footer-brand .logo { color: var(--cream); margin-bottom: 24px; }
+  .footer-brand .logo-ets { color: rgba(250, 245, 236, 0.5); }
+
+  .footer-desc {
+    font-size: 15px;
+    line-height: 1.55;
+    color: rgba(250, 245, 236, 0.65);
+    max-width: 380px;
+    margin-top: 20px;
+  }
+
+  .footer-col h4 {
+    font-family: 'Outfit', sans-serif;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgba(250, 245, 236, 0.5);
+    margin-bottom: 20px;
+  }
+
+  .footer-col ul { list-style: none; }
+  .footer-col li { margin-bottom: 12px; }
+
+  .footer-col a {
+    color: var(--cream);
+    text-decoration: none;
+    font-size: 15px;
+    transition: color 0.2s ease;
+  }
+
+  .footer-col a:hover { color: var(--clay); }
+
+  .footer-bottom {
+    padding-top: 32px;
+    border-top: 1px solid rgba(250, 245, 236, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 12px;
+    color: rgba(250, 245, 236, 0.5);
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+
+  @media (max-width: 900px) {
+    nav { padding: 16px 24px; }
+    .nav-links { display: none; }
+    .mobile-toggle {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 8px;
+    }
+    .mobile-toggle span {
+      width: 24px; height: 1.5px;
+      background: var(--ink);
+    }
+    .page-header { padding: 140px 24px 60px; }
+    section, .project-block { padding: 60px 24px; }
+    .project-content { grid-template-columns: 1fr; gap: 40px; }
+    .toc-grid { grid-template-columns: 1fr; gap: 0; }
+    .toc-section { padding: 40px 24px; }
+    .footer-grid { grid-template-columns: 1fr; gap: 40px; }
+    footer { padding: 60px 24px 30px; }
+  }
+
+  /* ---- Foto: hero background ---- */
+  .hero-photo {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+  }
+  .hero-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 30%;
+  }
+  .hero-photo-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      135deg,
+      rgba(244, 238, 226, 0.88) 0%,
+      rgba(244, 238, 226, 0.72) 45%,
+      rgba(244, 238, 226, 0.30) 100%
+    );
+  }
+
+  /* ---- Foto: colonna visiva nei blocchi progetto ---- */
+  .project-photo {
+    position: relative;
+    border-radius: 16px;
+    overflow: hidden;
+    aspect-ratio: 16/10;
+    align-self: center;
+  }
+  .project-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.6s ease;
+  }
+  .project-photo:hover img { transform: scale(1.03); }
+
+  /* ---- Foto: accent strip (foto notte Villa Levi) ---- */
+  .photo-accent {
+    width: 100%;
+    height: 380px;
+    overflow: hidden;
+    position: relative;
+  }
+  .photo-accent img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 40%;
+  }
+  .photo-accent-caption {
+    position: absolute;
+    bottom: 20px;
+    left: 24px;
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.7);
+    font-family: 'Outfit', sans-serif;
+    font-weight: 500;
+  }
+
+  /* ---- Chi siamo: foto team nell'header ---- */
+  .page-header-photo {
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 45%;
+    overflow: hidden;
+    z-index: 0;
+  }
+  .page-header-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    opacity: 0.25;
+  }
+  .page-header-photo-fade {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to right, var(--cream) 0%, transparent 60%);
+  }
+
+  @media (max-width: 900px) {
+    .project-photo { aspect-ratio: 16/9; }
+    .photo-accent { height: 240px; }
+    .page-header-photo { display: none; }
+  }
+
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="logo">
+    <span class="logo-mark"></span>
+    Habitat
+    <span class="logo-ets">ETS</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="chi-siamo.html">Chi siamo</a></li>
+    <li><a href="cosa-facciamo.html" class="active">Cosa facciamo</a></li>
+    <li><a href="sostienici.html">Sostienici</a></li>
+    <li><a href="#" class="external">Festival</a></li>
+    <li><a href="contatti.html">Contatti</a></li>
+    <li class="nav-lang">IT</li>
+  </ul>
+  <button class="mobile-toggle" aria-label="Apri menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- PAGE HEADER -->
+<header class="page-header">
+  <div class="page-header-blob-1"></div>
+  <div class="page-header-blob-2"></div>
+
+  <div class="page-header-label">Cosa facciamo</div>
+  <h1 class="page-title">Quattro progetti, <em>una stessa</em><br>idea di cultura.</h1>
+  <p class="page-subtitle">
+    Riattivare il patrimonio urbano sottoutilizzato attraverso la progettazione culturale.
+    Questo è il filo che attraversa tutto quello che facciamo: dal festival open air alla
+    presenza continuativa nelle ville storiche, dalle produzioni audiovisive agli eventi nei
+    luoghi simbolo del territorio reggiano.
+  </p>
+</header>
+
+<!-- TOC -->
+<section class="toc-section">
+  <div class="toc-grid">
+    <a href="#riattivazione" class="toc-item">
+      <span class="toc-num">01</span>
+      <span class="toc-title">Riattivazione del patrimonio culturale</span>
+      <span class="toc-meta">Approccio trasversale</span>
+    </a>
+    <a href="#open-air" class="toc-item">
+      <span class="toc-num">02</span>
+      <span class="toc-title">HBT Open Air</span>
+      <span class="toc-meta">Festival · Maggio</span>
+    </a>
+    <a href="#villa-levi" class="toc-item">
+      <span class="toc-num">03</span>
+      <span class="toc-title">Villa Levi</span>
+      <span class="toc-meta">Presenza continuativa</span>
+    </a>
+    <a href="#rediscover" class="toc-item">
+      <span class="toc-num">04</span>
+      <span class="toc-title">Rediscover</span>
+      <span class="toc-meta">Produzione audiovisiva</span>
+    </a>
+  </div>
+</section>
+
+<!-- PROGETTO 1: RIATTIVAZIONE -->
+<section class="project-block clay-soft" id="riattivazione">
+  <div class="project-content">
+    <div class="project-info">
+      <div class="section-label">01 · Approccio trasversale</div>
+      <h2>Riattivazione del <em>patrimonio</em> culturale</h2>
+      <p class="project-intro">
+        Ogni nostro progetto nasce dall'incontro tra un luogo e una comunità. Lavoriamo per
+        riportare cultura e presenza in spazi storici e industriali sottoutilizzati, creando
+        nuove narrazioni del territorio reggiano.
+      </p>
+      <div class="project-body">
+        <p>
+          Non è un singolo evento, è il <strong>metodo</strong> che attraversa tutta la nostra
+          pratica: scegliere luoghi con una storia, studiarne il carattere, costruire format
+          culturali che li rispettino e li restituiscano alla cittadinanza.
+        </p>
+        <p>
+          Castelli, rocche, ville storiche, ex aree industriali, parchi dimenticati: in sette
+          anni abbiamo attivato oltre sette luoghi iconici del territorio reggiano, ognuno
+          con una progettazione specifica che dialoga con il contesto.
+        </p>
+      </div>
+    </div>
+    <div>
+      <div class="project-photo" style="margin-bottom: 24px;">
+        <img src="images/patrimonio-culturale.jpg" alt="Rocca di Reggio Emilia - patrimonio culturale urbano" loading="lazy">
+      </div>
+      <div class="project-facts">
+        <div class="fact-row">
+          <div class="fact-label">Approccio</div>
+          <div class="fact-value">Progettazione culturale site-specific</div>
+        </div>
+        <div class="fact-row">
+          <div class="fact-label">Luoghi attivati</div>
+          <div class="fact-value">
+            Castello di Bianello<br>
+            Rocca del Boiardo<br>
+            Pietra di Bismantova<br>
+            Casa del Tibet<br>
+            ex Officine Reggiane<br>
+            Villa Levi
+          </div>
+        </div>
+        <div class="fact-row">
+          <div class="fact-label">Dal</div>
+          <div class="fact-value big">2018</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROGETTO 2: OPEN AIR -->
+<section class="project-block sage-soft" id="open-air">
+  <div class="project-content">
+    <div class="project-info">
+      <div class="section-label">02 · Festival · Maggio</div>
+      <h2><em>HBT</em> Open Air</h2>
+      <p class="project-intro">
+        Il festival gratuito di maggio al Parco Innovazione, ex Officine Meccaniche Reggiane.
+        Un modello di rigenerazione urbana su grande scala che ha portato 50.000 presenze
+        complessive in tre edizioni.
+      </p>
+      <div class="project-body">
+        <p>
+          HBT Open Air è il progetto più visibile di Habitat ETS: un festival gratuito e
+          accessibile che trasforma le ex Officine Meccaniche Reggiane — uno dei simboli più
+          potenti del passato industriale di Reggio Emilia — in luogo di cultura contemporanea
+          e incontro multigenerazionale.
+        </p>
+        <p>
+          Un'edizione del 2024 con 3.000 presenze, nel 2025 già 12.000 in due giorni. Nel
+          <strong>2026</strong> cresceremo a tre giorni con obiettivo 20.000 presenze, lineup
+          internazionale, aree tematiche dedicate a sport urbani, live painting e partnership
+          culturali.
+        </p>
+        <p>
+          Il festival è <strong>patrocinato dal Comune di Reggio Emilia</strong> e sostenuto
+          da <strong>STU Reggiane</strong>, la società di trasformazione urbana che gestisce
+          l'area del <a href="https://parcoinnovazione.it/" target="_blank" rel="noopener">Parco Innovazione ↗</a>. Collabora inoltre con <strong>Fotografia Europea</strong>
+          per le attività culturali integrate.
+        </p>
+      </div>
+      <div style="margin-top: 32px; display: flex; gap: 14px; flex-wrap: wrap;">
+        <a href="#" class="btn btn-primary">Vai al sito del festival ↗</a>
+        <a href="https://linktr.ee/HBT_Family" target="_blank" rel="noopener" class="btn btn-secondary">Linktree HBT ↗</a>
+      </div>
+    </div>
+    <div class="project-photo">
+      <img src="images/hbt-dj-folla.jpg" alt="HBT Open Air - DJ sul palco e folla al Parco Innovazione" loading="lazy">
+    </div>
+  </div>
+</section>
+
+<!-- PROGETTO 3: VILLA LEVI -->
+<section class="project-block cream-deep" id="villa-levi">
+  <div class="project-content">
+    <div class="project-info">
+      <div class="section-label">03 · Presenza continuativa</div>
+      <h2>Villa <em>Levi</em></h2>
+      <p class="project-intro">
+        Dal 2022 contribuiamo alla riapertura del parco storico di Villa Levi alla
+        cittadinanza, in partnership con FAI, UISP e la rete di realtà locali che
+        animano lo spazio.
+      </p>
+      <div class="project-body">
+        <p>
+          Villa Levi è un bene del Comune di Reggio Emilia in convenzione con l'Università
+          di Bologna, circondato da un parco storico. I soci di Habitat ETS sono tra i
+          volontari fondatori di <strong>Villa Levi ETS</strong> e hanno guidato la
+          collaborazione civica che ha portato il Comune a formalizzare la convenzione
+          con UNIBO.
+        </p>
+        <p>
+          Sul campo ci siamo occupati dell'<strong>autocostruzione delle infrastrutture
+          del parco</strong> con materiali di recupero (pallet) e del coordinamento di
+          oltre <strong>200 eventi con 50.000 partecipanti</strong> dal 2022 a oggi, in
+          collaborazione con FAI, UISP e numerose associazioni del territorio.
+        </p>
+        <p>
+          Il parco è oggi un ecosistema culturale aperto. Tra i format ricorrenti ospitati,
+          <a href="https://www.instagram.com/birretteinvilla" target="_blank" rel="noopener">
+          <strong>Birrette in Villa</strong> ↗</a> — il festival dedicato alla birra
+          artigianale — e il <a href="https://www.instagram.com/picnic_elettronico"
+          target="_blank" rel="noopener"><strong>Picnic Elettronico</strong> ↗</a>, format
+          di club culture diurna su teli da picnic che ha ospitato artisti come Sam Ruffillo,
+          DJ Rou, Bulma Brief, DJ Rocca, Eternal Love, Barbara Boeing, Alex Neri.
+        </p>
+      </div>
+      <div style="margin-top: 32px; display: flex; gap: 14px; flex-wrap: wrap;">
+        <a href="https://www.villalevi.re.it/" target="_blank" rel="noopener" class="btn btn-secondary">Sito Villa Levi ↗</a>
+        <a href="https://www.instagram.com/villalevi_" target="_blank" rel="noopener" class="btn btn-secondary">Instagram ↗</a>
+      </div>
+    </div>
+    <div class="project-photo" style="aspect-ratio: unset; align-self: stretch;">
+      <img src="images/villa-levi-drone-tramonto.jpg" alt="Villa Levi - vista aerea drone al tramonto con il parco storico" loading="lazy" style="object-position: center top;">
+    </div>
+  </div>
+</section>
+
+
+<!-- PROGETTO 4: REDISCOVER -->
+<section class="project-block cream-deep" id="rediscover">
+  <div class="project-content">
+    <div class="project-info">
+      <div class="section-label">04 · Produzione audiovisiva</div>
+      <h2><em>Rediscover</em></h2>
+      <p class="project-intro">
+        Docufilm itineranti prodotti con il patrocinio del Comune di Reggio Emilia. Un
+        progetto di valorizzazione del territorio attraverso la musica e l'immagine, dal
+        centro cittadino al Monte Cusna.
+      </p>
+      <div class="project-body">
+        <p>
+          Nato nel 2020 durante il lockdown, Rediscover è il progetto che ha segnato la nostra
+          evoluzione da collettivo di eventi a realtà culturale ibrida: <strong>quattro
+          puntate di docufilm</strong>, due parti ciascuna, oltre due ore e mezza di contenuto
+          girato tra il centro urbano di Reggio Emilia e l'Appennino reggiano.
+        </p>
+        <p>
+          Il concept è radicale: un DJ set itinerante su una 2 cavalli d'epoca con console
+          montata sopra, seguito da un DJ set statico in location storiche. Una produzione
+          autofinanziata, con crew interna di riprese, tecnica e regia.
+        </p>
+        <p>
+          Il progetto ha ottenuto il <strong>primo patrocinio del Comune</strong>, con permessi
+          straordinari per girare durante il lockdown in quanto riconosciuto come
+          valorizzazione culturale del territorio. Oggi è disponibile integralmente su YouTube.
+        </p>
+      </div>
+      <div style="margin-top: 32px; display: flex; gap: 14px; flex-wrap: wrap;">
+        <a href="https://www.youtube.com/@rediscover4626" target="_blank" rel="noopener" class="btn btn-primary">Guarda su YouTube ↗</a>
+        <a href="https://www.instagram.com/rediscover.it" target="_blank" rel="noopener" class="btn btn-secondary">Instagram ↗</a>
+      </div>
+    </div>
+    <div>
+      <div class="project-facts">
+        <div class="fact-row">
+          <div class="fact-label">Formato</div>
+          <div class="fact-value">Docufilm itinerante</div>
+        </div>
+        <div class="fact-row">
+          <div class="fact-label">Anno di produzione</div>
+          <div class="fact-value big">2020 – 2021</div>
+        </div>
+        <div class="fact-row">
+          <div class="fact-label">Durata totale</div>
+          <div class="fact-value">4 puntate · 2h 40min</div>
+        </div>
+        <div class="fact-row">
+          <div class="fact-label">Patrocinio</div>
+          <div class="fact-value">Comune di Reggio Emilia</div>
+        </div>
+        <div class="fact-row">
+          <div class="fact-label">Disponibile</div>
+          <div class="fact-value">YouTube</div>
+        </div>
+      </div>
+    </div>
+    <div class="project-photo" style="grid-column: 1 / -1; max-height: 480px;">
+      <img src="images/rediscover-dj-montagna.jpg" alt="Rediscover - DJ al tramonto sulle montagne dell'Appennino reggiano" loading="lazy">
+    </div>
+  </div>
+</section>
+
+<!-- CTA FINALE -->
+<section class="project-block warm-soft">
+  <div class="project-content" style="grid-template-columns: 1fr; max-width: 1000px;">
+    <div>
+      <div class="section-label">E adesso?</div>
+      <h2 style="font-family: 'Fraunces', 'Times New Roman', serif; font-weight: 500; font-size: clamp(46px, 6vw, 80px); line-height: 1.02; letter-spacing: -0.01em; color: var(--ink-title); margin-top: 20px; margin-bottom: 32px;">
+        Collabora con <em style="font-style: normal; color: var(--orange);">Habitat ETS</em>.
+      </h2>
+      <p style="font-size: 18px; line-height: 1.55; color: var(--ink-soft); margin-bottom: 40px; max-width: 640px;">
+        Se sei un'azienda, un ente pubblico o un operatore culturale interessato a partnership,
+        sponsorizzazioni o progettualità condivise, entriamo in contatto.
+      </p>
+      <div style="display: flex; gap: 14px; flex-wrap: wrap;">
+        <a href="sostienici.html" class="btn btn-primary">Sostienici →</a>
+        <a href="contatti.html" class="btn btn-secondary">Contatti</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <a href="index.html" class="logo">
+        <span class="logo-mark"></span>
+        Habitat
+        <span class="logo-ets">ETS</span>
+      </a>
+      <p class="footer-desc">
+        Collettivo culturale di Reggio Emilia. Dal 2018 riattiviamo il patrimonio urbano
+        sottoutilizzato attraverso la progettazione culturale, l'inclusione sociale e la
+        valorizzazione del territorio.
+      </p>
+    </div>
+    <div class="footer-col">
+      <h4>Naviga</h4>
+      <ul>
+        <li><a href="chi-siamo.html">Chi siamo</a></li>
+        <li><a href="cosa-facciamo.html">Cosa facciamo</a></li>
+        <li><a href="sostienici.html">Sostienici</a></li>
+        <li><a href="contatti.html">Contatti</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Contatti</h4>
+      <ul>
+        <li><a href="mailto:info@hbt-re.com">info@hbt-re.com</a></li>
+        <li><a href="tel:+393405897588">+39 340 589 7588</a></li>
+        <li><a href="https://www.instagram.com/habitat_ets/" target="_blank" rel="noopener">Instagram ↗</a></li>
+        <li><a href="https://linktr.ee/HBT_Family" target="_blank" rel="noopener">Linktree HBT ↗</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div>© 2026 Habitat ETS · Sede legale in Reggio Emilia · Associazione non riconosciuta</div>
+    <div>Designed with care in Reggio Emilia</div>
+  </div>
+</footer>
+
+</body>
+</html>

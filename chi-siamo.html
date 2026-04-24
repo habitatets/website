@@ -1,0 +1,1161 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="color-scheme" content="light only">
+<meta name="theme-color" content="#FAF5EC">
+<title>Chi siamo — Habitat ETS</title>
+<meta name="description" content="Habitat ETS: la storia, la vision e i valori del collettivo culturale di Reggio Emilia. Dal 2018 riattiviamo il patrimonio urbano attraverso la progettazione culturale.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Outfit:wght@300..700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    color-scheme: only light;
+    --cream: #FAF5EC;
+    --cream-deep: #F2EADB;
+    --ink: #0F0B06;
+    --ink-title: #0A0705;
+    --ink-soft: #3A3028;
+    --muted: #7A6F62;
+    --orange: #E8551F;
+    --orange-deep: #C2420F;
+    --sage: #8FA088;
+    --sage-deep: #5E6F57;
+    --clay: #D97A3E;
+    --line: rgba(15, 11, 6, 0.12);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Outfit', -apple-system, sans-serif;
+    font-weight: 400;
+    color: var(--ink);
+    background: var(--cream);
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    padding: 20px 48px;
+    background: rgba(250, 245, 236, 0.88);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--line);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .logo {
+    font-family: 'Fraunces', serif;
+    font-weight: 500;
+    font-size: 22px;
+    letter-spacing: -0.02em;
+    color: var(--ink);
+    text-decoration: none;
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+  }
+
+  .logo-mark {
+    display: inline-block;
+    width: 10px; height: 10px;
+    background: var(--orange);
+    border-radius: 50%;
+  }
+
+  .logo-ets {
+    font-family: 'Outfit', sans-serif;
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    color: var(--muted);
+    text-transform: uppercase;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 32px;
+    list-style: none;
+    align-items: center;
+  }
+
+  .nav-links a {
+    font-size: 14px;
+    font-weight: 400;
+    color: var(--ink-soft);
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+
+  .nav-links a:hover,
+  .nav-links a.active { color: var(--orange); }
+
+  .nav-links .external::after {
+    content: ' ↗';
+    font-size: 11px;
+    color: var(--muted);
+  }
+
+  .nav-lang {
+    font-size: 11px;
+    color: var(--muted);
+    letter-spacing: 0.1em;
+    padding-left: 20px;
+    border-left: 1px solid var(--line);
+  }
+
+  .mobile-toggle { display: none; }
+
+  /* PAGE HEADER */
+  .page-header {
+    padding: 180px 48px 100px;
+    position: relative;
+    overflow: hidden;
+    background: var(--cream);
+  }
+
+  .page-header-blob-1 {
+    position: absolute;
+    top: -5%; right: -15%;
+    width: 600px; height: 600px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 30% 30%, rgba(232, 85, 31, 0.22), transparent 70%);
+    filter: blur(50px);
+    pointer-events: none;
+    animation: blobFloat 24s ease-in-out infinite;
+  }
+
+  .page-header-blob-2 {
+    position: absolute;
+    bottom: -30%; left: -10%;
+    width: 450px; height: 450px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 70% 40%, rgba(143, 160, 136, 0.28), transparent 70%);
+    filter: blur(60px);
+    pointer-events: none;
+    animation: blobFloat 28s ease-in-out infinite reverse;
+  }
+
+  @keyframes blobFloat {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    50% { transform: translate(-30px, 20px) scale(1.06); }
+  }
+
+  .page-header-label {
+    position: relative;
+    z-index: 1;
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    color: var(--orange);
+    font-weight: 600;
+    text-transform: uppercase;
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .page-header-label::before {
+    content: '';
+    width: 20px; height: 1px;
+    background: var(--orange);
+  }
+
+  .page-title {
+    position: relative;
+    z-index: 1;
+    font-family: 'Fraunces', 'Times New Roman', serif;
+    font-weight: 500;
+    font-size: clamp(56px, 8vw, 120px);
+    line-height: 1.02;
+    letter-spacing: -0.01em;
+    color: var(--ink-title);
+    max-width: 1100px;
+    margin-bottom: 32px;
+  }
+
+  .page-title em {
+    font-style: italic;
+    font-weight: 400;
+    color: var(--orange);
+  }
+
+  .page-subtitle {
+    position: relative;
+    z-index: 1;
+    font-size: clamp(18px, 1.5vw, 22px);
+    line-height: 1.5;
+    color: var(--ink-soft);
+    max-width: 720px;
+    font-weight: 400;
+  }
+
+  /* SECTION */
+  section {
+    padding: 100px 48px;
+    position: relative;
+  }
+
+  .section-label {
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    color: var(--orange);
+    font-weight: 600;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .section-label::before {
+    content: '';
+    width: 20px; height: 1px;
+    background: var(--orange);
+  }
+
+  .section-title {
+    font-family: 'Fraunces', 'Times New Roman', serif;
+    font-weight: 500;
+    font-size: clamp(42px, 5.5vw, 76px);
+    line-height: 1.05;
+    letter-spacing: -0.01em;
+    max-width: 900px;
+    color: var(--ink-title);
+  }
+
+  .section-title em {
+    font-style: italic;
+    font-weight: 400;
+    color: var(--orange);
+  }
+
+  .section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 80px;
+    gap: 40px;
+    flex-wrap: wrap;
+  }
+
+  .section-header-text { max-width: 800px; }
+
+  /* BUTTONS */
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 16px 28px;
+    font-family: inherit;
+    font-size: 15px;
+    font-weight: 500;
+    text-decoration: none;
+    border-radius: 100px;
+    transition: all 0.3s cubic-bezier(.4,.0,.2,1);
+    cursor: pointer;
+    border: none;
+    letter-spacing: -0.01em;
+  }
+
+  .btn-primary {
+    background: var(--ink);
+    color: var(--cream);
+  }
+  .btn-primary:hover {
+    background: var(--orange);
+    transform: translateY(-2px);
+  }
+
+  .btn-secondary {
+    background: transparent;
+    color: var(--ink);
+    border: 1.5px solid var(--ink);
+  }
+  .btn-secondary:hover {
+    background: var(--ink);
+    color: var(--cream);
+    transform: translateY(-2px);
+  }
+
+  /* TIMELINE */
+  .timeline-section {
+    background: var(--cream-deep);
+    border-top: 1px solid var(--line);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .timeline-section::before {
+    content: '';
+    position: absolute;
+    top: 10%; right: -5%;
+    width: 400px; height: 400px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(143, 160, 136, 0.18), transparent 70%);
+    filter: blur(60px);
+    pointer-events: none;
+  }
+
+  .timeline {
+    position: relative;
+    max-width: 900px;
+    padding-left: 40px;
+    z-index: 1;
+  }
+
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 10px; top: 10px; bottom: 10px;
+    width: 1px;
+    background: var(--line);
+  }
+
+  .timeline-item {
+    position: relative;
+    padding-bottom: 56px;
+  }
+
+  .timeline-item:last-child { padding-bottom: 0; }
+
+  .timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -40px; top: 8px;
+    width: 22px; height: 22px;
+    border-radius: 50%;
+    background: var(--cream-deep);
+    border: 2px solid var(--orange);
+  }
+
+  .timeline-item.major::before { background: var(--orange); }
+
+  .timeline-year {
+    font-family: 'Fraunces', serif;
+    font-weight: 500;
+    font-style: italic;
+    font-size: 14px;
+    letter-spacing: 0.05em;
+    color: var(--orange);
+    margin-bottom: 8px;
+  }
+
+  .timeline-title {
+    font-family: 'Fraunces', 'Times New Roman', serif;
+    font-weight: 500;
+    font-size: clamp(24px, 2.4vw, 32px);
+    line-height: 1.05;
+    letter-spacing: -0.005em;
+    color: var(--ink-title);
+    margin-bottom: 14px;
+  }
+
+  .timeline-desc {
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--ink-soft);
+  }
+
+  /* VISION (luminoso caldo) */
+  .vision-block {
+    background: linear-gradient(135deg, #F5EADB 0%, #E8D9C0 100%);
+    color: var(--ink-title);
+    position: relative;
+    overflow: hidden;
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+  }
+
+  .vision-block::before {
+    content: '';
+    position: absolute;
+    top: -20%; right: -10%;
+    width: 500px; height: 500px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(232, 85, 31, 0.3), transparent 70%);
+    filter: blur(60px);
+    pointer-events: none;
+  }
+
+  .vision-block::after {
+    content: '';
+    position: absolute;
+    bottom: -25%; left: -15%;
+    width: 450px; height: 450px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(143, 160, 136, 0.35), transparent 70%);
+    filter: blur(60px);
+    pointer-events: none;
+  }
+
+  .vision-quote {
+    position: relative;
+    z-index: 1;
+    font-family: 'Outfit', sans-serif;
+    font-weight: 300;
+    font-style: italic;
+    font-size: clamp(30px, 3.6vw, 48px);
+    line-height: 1.25;
+    letter-spacing: -0.02em;
+    max-width: 1100px;
+    color: var(--ink-title);
+  }
+
+  .vision-quote .accent {
+    color: var(--orange);
+    font-style: italic;
+    font-weight: 500;
+  }
+
+  .vision-author {
+    position: relative;
+    z-index: 1;
+    margin-top: 48px;
+    font-size: 13px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--muted);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-weight: 500;
+  }
+
+  .vision-author::before {
+    content: '';
+    width: 30px; height: 1px;
+    background: var(--muted);
+  }
+
+  /* MISSION GRID */
+  .mission-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+    margin-top: 60px;
+  }
+
+  .mission-card {
+    padding: 40px 32px;
+    background: var(--cream-deep);
+    border-radius: 24px;
+    border: 1px solid var(--line);
+    transition: all 0.3s ease;
+  }
+
+  .mission-card:hover {
+    border-color: var(--orange);
+    transform: translateY(-4px);
+  }
+
+  .mission-num {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-weight: 400;
+    font-size: 48px;
+    color: var(--orange);
+    line-height: 1;
+    margin-bottom: 20px;
+  }
+
+  .mission-title {
+    font-family: 'Fraunces', 'Times New Roman', serif;
+    font-weight: 500;
+    font-size: clamp(24px, 2.2vw, 30px);
+    line-height: 1.05;
+    letter-spacing: -0.005em;
+    color: var(--ink-title);
+    margin-bottom: 14px;
+  }
+
+  .mission-desc {
+    font-size: 15px;
+    line-height: 1.6;
+    color: var(--ink-soft);
+  }
+
+  /* VALUES GRID */
+  .values-section {
+    background: var(--cream-deep);
+    border-top: 1px solid var(--line);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .values-section::before {
+    content: '';
+    position: absolute;
+    bottom: -10%; left: -5%;
+    width: 400px; height: 400px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(232, 85, 31, 0.15), transparent 70%);
+    filter: blur(60px);
+    pointer-events: none;
+  }
+
+  .values-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+    background: var(--line);
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+    margin-top: 60px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .value-item {
+    background: var(--cream-deep);
+    padding: 48px 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    min-height: 240px;
+    transition: background 0.3s ease;
+  }
+
+  .value-item:hover { background: var(--cream); }
+
+  .value-number {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-weight: 400;
+    font-size: 18px;
+    color: var(--orange);
+  }
+
+  .value-title {
+    font-family: 'Fraunces', 'Times New Roman', serif;
+    font-weight: 500;
+    font-size: 30px;
+    line-height: 1;
+    letter-spacing: -0.005em;
+    color: var(--ink-title);
+  }
+
+  .value-desc {
+    font-size: 15px;
+    line-height: 1.55;
+    color: var(--ink-soft);
+    margin-top: auto;
+  }
+
+  /* PROSE */
+  .prose {
+    max-width: 780px;
+    font-size: 17px;
+    line-height: 1.65;
+    color: var(--ink-soft);
+  }
+
+  .prose p { margin-bottom: 24px; }
+  .prose p:last-child { margin-bottom: 0; }
+  .prose strong { color: var(--ink-title); font-weight: 600; }
+
+  .prose h3 {
+    font-family: 'Fraunces', 'Times New Roman', serif;
+    font-weight: 500;
+    font-size: clamp(24px, 2.4vw, 30px);
+    line-height: 1.1;
+    letter-spacing: -0.005em;
+    color: var(--ink-title);
+    margin-top: 48px;
+    margin-bottom: 20px;
+  }
+
+  .prose h3:first-child { margin-top: 0; }
+
+  .prose ul {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 24px;
+  }
+
+  .prose ul li {
+    position: relative;
+    padding-left: 24px;
+    margin-bottom: 12px;
+  }
+
+  .prose ul li::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 10px;
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: var(--orange);
+  }
+
+  /* CTA FINALE */
+  .cta-end {
+    background: linear-gradient(135deg, #F2D8B8 0%, #E8B98A 100%);
+    color: var(--ink-title);
+    position: relative;
+    overflow: hidden;
+    border-top: 1px solid var(--line);
+  }
+
+  .cta-end::before {
+    content: '';
+    position: absolute;
+    bottom: -30%; right: -10%;
+    width: 600px; height: 600px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(232, 85, 31, 0.4), transparent 65%);
+    filter: blur(50px);
+    pointer-events: none;
+  }
+
+  .cta-end::after {
+    content: '';
+    position: absolute;
+    top: -20%; left: -10%;
+    width: 400px; height: 400px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(143, 160, 136, 0.3), transparent 70%);
+    filter: blur(60px);
+    pointer-events: none;
+  }
+
+  .cta-content {
+    position: relative;
+    z-index: 1;
+    max-width: 900px;
+  }
+
+  /* FOOTER */
+  footer {
+    background: var(--ink);
+    color: var(--cream);
+    padding: 80px 48px 40px;
+  }
+
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 80px;
+    margin-bottom: 60px;
+  }
+
+  .footer-brand .logo { color: var(--cream); margin-bottom: 24px; }
+  .footer-brand .logo-ets { color: rgba(250, 245, 236, 0.5); }
+
+  .footer-desc {
+    font-size: 15px;
+    line-height: 1.55;
+    color: rgba(250, 245, 236, 0.65);
+    max-width: 380px;
+    margin-top: 20px;
+  }
+
+  .footer-col h4 {
+    font-family: 'Outfit', sans-serif;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgba(250, 245, 236, 0.5);
+    margin-bottom: 20px;
+  }
+
+  .footer-col ul { list-style: none; }
+  .footer-col li { margin-bottom: 12px; }
+
+  .footer-col a {
+    color: var(--cream);
+    text-decoration: none;
+    font-size: 15px;
+    transition: color 0.2s ease;
+  }
+
+  .footer-col a:hover { color: var(--clay); }
+
+  .footer-bottom {
+    padding-top: 32px;
+    border-top: 1px solid rgba(250, 245, 236, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 12px;
+    color: rgba(250, 245, 236, 0.5);
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+
+  @media (max-width: 900px) {
+    nav { padding: 16px 24px; }
+    .nav-links { display: none; }
+    .mobile-toggle {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 8px;
+    }
+    .mobile-toggle span {
+      width: 24px; height: 1.5px;
+      background: var(--ink);
+    }
+    .page-header { padding: 140px 24px 60px; }
+    section { padding: 60px 24px; }
+    .values-grid { grid-template-columns: 1fr; }
+    .mission-grid { grid-template-columns: 1fr; }
+    .footer-grid { grid-template-columns: 1fr; gap: 40px; }
+    footer { padding: 60px 24px 30px; }
+    .section-header {
+      flex-direction: column;
+      align-items: flex-start;
+      margin-bottom: 40px;
+    }
+  }
+
+  /* ---- Foto: hero background ---- */
+  .hero-photo {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+  }
+  .hero-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 30%;
+  }
+  .hero-photo-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      135deg,
+      rgba(244, 238, 226, 0.88) 0%,
+      rgba(244, 238, 226, 0.72) 45%,
+      rgba(244, 238, 226, 0.30) 100%
+    );
+  }
+
+  /* ---- Foto: colonna visiva nei blocchi progetto ---- */
+  .project-photo {
+    position: relative;
+    border-radius: 16px;
+    overflow: hidden;
+    aspect-ratio: 16/10;
+    align-self: center;
+  }
+  .project-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.6s ease;
+  }
+  .project-photo:hover img { transform: scale(1.03); }
+
+  /* ---- Foto: accent strip (foto notte Villa Levi) ---- */
+  .photo-accent {
+    width: 100%;
+    height: 380px;
+    overflow: hidden;
+    position: relative;
+  }
+  .photo-accent img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 40%;
+  }
+  .photo-accent-caption {
+    position: absolute;
+    bottom: 20px;
+    left: 24px;
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.7);
+    font-family: 'Outfit', sans-serif;
+    font-weight: 500;
+  }
+
+  /* ---- Chi siamo: foto team nell'header ---- */
+  .page-header-photo {
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 45%;
+    overflow: hidden;
+    z-index: 0;
+  }
+  .page-header-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    opacity: 0.25;
+  }
+  .page-header-photo-fade {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to right, var(--cream) 0%, transparent 60%);
+  }
+
+  @media (max-width: 900px) {
+    .project-photo { aspect-ratio: 16/9; }
+    .photo-accent { height: 240px; }
+    .page-header-photo { display: none; }
+  }
+
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="logo">
+    <span class="logo-mark"></span>
+    Habitat
+    <span class="logo-ets">ETS</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="chi-siamo.html" class="active">Chi siamo</a></li>
+    <li><a href="cosa-facciamo.html">Cosa facciamo</a></li>
+    <li><a href="sostienici.html">Sostienici</a></li>
+    <li><a href="#" class="external">Festival</a></li>
+    <li><a href="contatti.html">Contatti</a></li>
+    <li class="nav-lang">IT</li>
+  </ul>
+  <button class="mobile-toggle" aria-label="Apri menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- PAGE HEADER -->
+<header class="page-header">
+  <div class="page-header-blob-1"></div>
+  <div class="page-header-blob-2"></div>
+  <div class="page-header-photo">
+    <img src="images/team-habitat-ets.jpg" alt="Il team di Habitat ETS" loading="eager">
+    <div class="page-header-photo-fade"></div>
+  </div>
+
+  <div class="page-header-label">Chi siamo</div>
+  <h1 class="page-title">Un collettivo, <em>una storia</em><br>che parte da Reggio Emilia.</h1>
+  <p class="page-subtitle">
+    Habitat è un collettivo di giovani professionisti under 35 attivo dal 2018. Nel 2026 ci
+    siamo costituiti come Ente del Terzo Settore per consolidare il nostro impegno sul
+    territorio e dare forma istituzionale a un percorso di rigenerazione urbana, inclusione
+    sociale e valorizzazione culturale.
+  </p>
+</header>
+
+<!-- TIMELINE -->
+<section class="timeline-section">
+  <div class="section-header">
+    <div class="section-header-text">
+      <div class="section-label">La nostra storia</div>
+      <h2 class="section-title">Sette anni di <em>evoluzione</em> continua.</h2>
+    </div>
+  </div>
+
+  <div class="timeline">
+    <div class="timeline-item major">
+      <div class="timeline-year">2018 — Le origini</div>
+      <h3 class="timeline-title">Habitat, la serata che ha dato inizio a tutto</h3>
+      <p class="timeline-desc">
+        Un gruppo di giovani DJ under 25 di Reggio Emilia si riunisce attorno a un'idea
+        radicale: una serata di musica house e tech house fuori dalle logiche commerciali,
+        che mette al centro la ricerca musicale e l'esperienza collettiva. Nasce Habitat
+        all'Italghisa Club — solo DJ resident, statuto etico, trasformazione dello spazio ad
+        ogni data. In poche edizioni diventa la serata di riferimento della città.
+      </p>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-year">2020 — Prima evoluzione</div>
+      <h3 class="timeline-title">Rediscover: docufilm in piena pandemia</h3>
+      <p class="timeline-desc">
+        Con i club chiusi ci reinventiamo. Nasce Rediscover, progetto di docufilm itinerante
+        in 4 puntate che valorizza il territorio reggiano attraverso la musica elettronica,
+        dal centro cittadino al Monte Cusna. Primo patrocinio del Comune di Reggio Emilia e
+        prima uscita dal circuito club.
+      </p>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-year">2021 — Seconda evoluzione</div>
+      <h3 class="timeline-title">La presenza strutturale a Villa Levi</h3>
+      <p class="timeline-desc">
+        Iniziamo a operare stabilmente a Villa Levi, contribuendo alla sua riapertura alla
+        cittadinanza. Sviluppiamo il format Picnic Elettronico: eventi pomeridiani e serali
+        nel parco storico con food, musica e pubblico multigenerazionale. Un modello di
+        club culture diurna e inclusiva.
+      </p>
+    </div>
+
+    <div class="timeline-item major">
+      <div class="timeline-year">2024 — La svolta open air</div>
+      <h3 class="timeline-title">Nasce HBT Open Air al Parco Innovazione</h3>
+      <p class="timeline-desc">
+        Prima edizione del festival gratuito alle ex Officine Meccaniche Reggiane: una
+        giornata, circa 3.000 persone. Scegliamo uno dei luoghi più simbolici della città —
+        un'area industriale abbandonata per decenni, oggi hub di tecnologia, cultura e
+        comunità — per raccontare un'idea concreta di rigenerazione urbana.
+      </p>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-year">2025 — Consolidamento</div>
+      <h3 class="timeline-title">HBT Open Air 2025: 12.000 presenze in due giorni</h3>
+      <p class="timeline-desc">
+        Seconda edizione, due giorni di festival, oltre 12.000 presenze. Lineup internazionale
+        con Luuk Van Dijk, Makèz, Dirty Channels, Piem. Partnership con Fotografia Europea,
+        patrocinio del Comune, collaborazione con STU Reggiane. 250.000 visualizzazioni
+        Instagram, 160.000 views YouTube. Un caso di studio nazionale di rigenerazione
+        culturale attraverso la musica.
+      </p>
+    </div>
+
+    <div class="timeline-item major">
+      <div class="timeline-year">2026 — Oggi</div>
+      <h3 class="timeline-title">Costituzione come Ente del Terzo Settore</h3>
+      <p class="timeline-desc">
+        Ci costituiamo formalmente come ETS per consolidare autonomia progettuale,
+        indipendenza artistica e sostenibilità economica. Obiettivo 2026: HBT Open Air in
+        tre giorni, target 20.000 presenze, crescita delle attività annuali e avvio del
+        percorso di iscrizione al RUNTS.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- VISION -->
+<section class="vision-block">
+  <div class="section-label">Vision</div>
+  <div style="margin-top: 32px; position: relative; z-index: 1;">
+    <p class="vision-quote">
+      Fare di Reggio Emilia un <span class="accent">punto di riferimento</span> nazionale ed
+      europeo per la cultura indipendente, dimostrando che musica, arte e comunità possono
+      <span class="accent">trasformare spazi abbandonati</span> in luoghi di incontro,
+      crescita e innovazione sociale.
+    </p>
+  </div>
+  <div class="vision-author">
+    Vision Habitat ETS — Reggio Emilia, 2026
+  </div>
+</section>
+
+<!-- MISSION -->
+<section>
+  <div class="section-header">
+    <div class="section-header-text">
+      <div class="section-label">Mission</div>
+      <h2 class="section-title">Il nostro <em>impegno</em> quotidiano.</h2>
+    </div>
+  </div>
+
+  <div class="mission-grid">
+    <div class="mission-card">
+      <div class="mission-num">01</div>
+      <h3 class="mission-title">Riattivare il patrimonio urbano</h3>
+      <p class="mission-desc">
+        Trasformiamo aree sottoutilizzate e spazi storici del territorio reggiano — industriali,
+        naturalistici, culturali — in luoghi vivi di cultura e aggregazione, restituendoli
+        pienamente alla cittadinanza.
+      </p>
+    </div>
+    <div class="mission-card">
+      <div class="mission-num">02</div>
+      <h3 class="mission-title">Creare occupazione culturale</h3>
+      <p class="mission-desc">
+        Siamo un incubatore per giovani professionisti under 35 — DJ, videomaker, grafici,
+        tecnici, project manager — permettendo loro di costruire carriere nel settore culturale
+        senza lasciare Reggio Emilia.
+      </p>
+    </div>
+    <div class="mission-card">
+      <div class="mission-num">03</div>
+      <h3 class="mission-title">Promuovere l'inclusione sociale</h3>
+      <p class="mission-desc">
+        I nostri eventi sono gratuiti, accessibili, multiculturali e multigenerazionali. Spazi
+        sicuri dove persone di ogni provenienza, età e background possano incontrarsi e
+        costruire comunità.
+      </p>
+    </div>
+    <div class="mission-card">
+      <div class="mission-num">04</div>
+      <h3 class="mission-title">Contrastare la desertificazione culturale</h3>
+      <p class="mission-desc">
+        Sviluppiamo una scena culturale italiana sostenibile, etica e radicata nel territorio,
+        fondata sulla progettazione culturale e sull'impatto sociale misurabile.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- VALORI -->
+<section class="values-section">
+  <div class="section-header">
+    <div class="section-header-text">
+      <div class="section-label">Valori fondanti</div>
+      <h2 class="section-title">Sei principi che ci <em>guidano</em> dal 2018.</h2>
+    </div>
+  </div>
+
+  <div class="values-grid">
+    <div class="value-item">
+      <div class="value-number">i.</div>
+      <div class="value-title">Ricerca</div>
+      <p class="value-desc">
+        Curiosità e aggiornamento continuo. Investiamo tempo nell'ascolto, nella scoperta
+        musicale, nella sperimentazione. Ogni scelta artistica è frutto di ricerca approfondita.
+      </p>
+    </div>
+    <div class="value-item">
+      <div class="value-number">ii.</div>
+      <div class="value-title">Qualità</div>
+      <p class="value-desc">
+        Eccellenza in ogni dettaglio. Non accettiamo compromessi su sound system, luci,
+        sicurezza, accoglienza. Standard professionali sempre, anche quando siamo volontari.
+      </p>
+    </div>
+    <div class="value-item">
+      <div class="value-number">iii.</div>
+      <div class="value-title">Comunità</div>
+      <p class="value-desc">
+        Crescita collettiva e inclusione. Gruppo orizzontale dove ognuno contribuisce. Ambienti
+        sicuri e rispettosi per tutti, indipendentemente da età, genere, provenienza.
+      </p>
+    </div>
+    <div class="value-item">
+      <div class="value-number">iv.</div>
+      <div class="value-title">Territorio</div>
+      <p class="value-desc">
+        Radicamento e valorizzazione locale. Amiamo Reggio Emilia e vogliamo che cresca
+        culturalmente. Non importiamo format, li creiamo qui.
+      </p>
+    </div>
+    <div class="value-item">
+      <div class="value-number">v.</div>
+      <div class="value-title">Indipendenza</div>
+      <p class="value-desc">
+        Libertà artistica e sostenibilità autonoma. La costituzione come ETS ci permette di
+        essere padroni della nostra direzione artistica senza tradire i valori.
+      </p>
+    </div>
+    <div class="value-item">
+      <div class="value-number">vi.</div>
+      <div class="value-title">Innovazione</div>
+      <p class="value-desc">
+        Sperimentazione ed evoluzione continua. Dai docufilm ai festival open air: non abbiamo
+        paura di provare formati nuovi. L'innovazione è parte del nostro DNA.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- NATURA GIURIDICA -->
+<section>
+  <div class="section-header">
+    <div class="section-header-text">
+      <div class="section-label">Natura giuridica</div>
+      <h2 class="section-title">Un <em>Ente del Terzo Settore</em> per amplificare l'impatto.</h2>
+    </div>
+  </div>
+
+  <div class="prose">
+    <p>
+      <strong>Habitat ETS</strong> è un'associazione costituita ai sensi del Codice del Terzo
+      Settore (D.Lgs. 117/2017). L'associazione non persegue finalità di lucro e opera per
+      finalità civiche, solidaristiche e di utilità sociale attraverso lo svolgimento
+      continuativo di attività di interesse generale.
+    </p>
+    <p>
+      Habitat è iscritta al <strong>Registro Unico Nazionale del Terzo Settore (RUNTS)</strong>
+      come Ente del Terzo Settore.
+    </p>
+    <h3>Le attività di interesse generale</h3>
+    <p>Ai sensi dell'art. 5 del D.Lgs. 117/2017, Habitat ETS svolge prevalentemente:</p>
+    <ul>
+      <li>Attività culturali di interesse sociale con finalità educativa (lett. d)</li>
+      <li>Organizzazione e gestione di attività culturali, artistiche e ricreative di interesse sociale (lett. i)</li>
+      <li>Formazione extra-scolastica finalizzata alla valorizzazione delle competenze dei giovani (lett. l)</li>
+    </ul>
+    <h3>Governance</h3>
+    <p>
+      L'associazione adotta una <strong>governance orizzontale</strong>: lavoriamo per aree di
+      responsabilità con coordinamento centrale. Le decisioni strategiche sono prese
+      collettivamente in assemblea, quelle operative da chi ha competenza specifica nel
+      settore. Un modello che garantisce efficienza, responsabilizzazione, crescita e
+      coerenza valoriale.
+    </p>
+  </div>
+</section>
+
+<!-- CTA FINALE -->
+<section class="cta-end">
+  <div class="cta-content">
+    <div class="section-label">E adesso?</div>
+    <h2 class="section-title" style="margin-top: 20px;">
+      Scopri cosa facciamo <em>ogni giorno</em>.
+    </h2>
+    <div style="display: flex; gap: 14px; flex-wrap: wrap; margin-top: 40px;">
+      <a href="cosa-facciamo.html" class="btn btn-primary">I nostri progetti →</a>
+      <a href="sostienici.html" class="btn btn-secondary">Sostienici</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <a href="index.html" class="logo">
+        <span class="logo-mark"></span>
+        Habitat
+        <span class="logo-ets">ETS</span>
+      </a>
+      <p class="footer-desc">
+        Collettivo culturale di Reggio Emilia. Dal 2018 riattiviamo il patrimonio urbano
+        sottoutilizzato attraverso la progettazione culturale, l'inclusione sociale e la
+        valorizzazione del territorio.
+      </p>
+    </div>
+    <div class="footer-col">
+      <h4>Naviga</h4>
+      <ul>
+        <li><a href="chi-siamo.html">Chi siamo</a></li>
+        <li><a href="cosa-facciamo.html">Cosa facciamo</a></li>
+        <li><a href="sostienici.html">Sostienici</a></li>
+        <li><a href="contatti.html">Contatti</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Contatti</h4>
+      <ul>
+        <li><a href="mailto:info@hbt-re.com">info@hbt-re.com</a></li>
+        <li><a href="tel:+393405897588">+39 340 589 7588</a></li>
+        <li><a href="https://www.instagram.com/habitat_ets/" target="_blank" rel="noopener">Instagram ↗</a></li>
+        <li><a href="https://linktr.ee/HBT_Family" target="_blank" rel="noopener">Linktree HBT ↗</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div>© 2026 Habitat ETS · Sede legale in Reggio Emilia · Associazione non riconosciuta</div>
+    <div>Designed with care in Reggio Emilia</div>
+  </div>
+</footer>
+
+</body>
+</html>

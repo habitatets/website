@@ -1,0 +1,966 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="color-scheme" content="light only">
+<meta name="theme-color" content="#FAF5EC">
+<title>Sostienici — Habitat ETS</title>
+<meta name="description" content="Sostieni Habitat ETS con una donazione liberale, una sponsorizzazione aziendale o il 5×1000. Scopri i vantaggi fiscali e le modalità di contributo.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Outfit:wght@300..700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    color-scheme: only light;
+    --cream: #FAF5EC;
+    --cream-deep: #F2EADB;
+    --ink: #0F0B06;
+    --ink-title: #0A0705;
+    --ink-soft: #3A3028;
+    --muted: #7A6F62;
+    --orange: #E8551F;
+    --orange-deep: #C2420F;
+    --sage: #8FA088;
+    --sage-deep: #5E6F57;
+    --clay: #D97A3E;
+    --line: rgba(15, 11, 6, 0.12);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Outfit', -apple-system, sans-serif;
+    font-weight: 400;
+    color: var(--ink);
+    background: var(--cream);
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    padding: 20px 48px;
+    background: rgba(250, 245, 236, 0.88);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--line);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .logo {
+    font-family: 'Fraunces', serif;
+    font-weight: 500;
+    font-size: 22px;
+    letter-spacing: -0.02em;
+    color: var(--ink);
+    text-decoration: none;
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+  }
+
+  .logo-mark {
+    display: inline-block;
+    width: 10px; height: 10px;
+    background: var(--orange);
+    border-radius: 50%;
+  }
+
+  .logo-ets {
+    font-family: 'Outfit', sans-serif;
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    color: var(--muted);
+    text-transform: uppercase;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 32px;
+    list-style: none;
+    align-items: center;
+  }
+
+  .nav-links a {
+    font-size: 14px;
+    font-weight: 400;
+    color: var(--ink-soft);
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+
+  .nav-links a:hover,
+  .nav-links a.active { color: var(--orange); }
+
+  .nav-links .external::after {
+    content: ' ↗';
+    font-size: 11px;
+    color: var(--muted);
+  }
+
+  .nav-lang {
+    font-size: 11px;
+    color: var(--muted);
+    letter-spacing: 0.1em;
+    padding-left: 20px;
+    border-left: 1px solid var(--line);
+  }
+
+  .mobile-toggle { display: none; }
+
+  /* PAGE HEADER */
+  .page-header {
+    padding: 180px 48px 100px;
+    position: relative;
+    overflow: hidden;
+    background: var(--cream);
+  }
+
+  .page-header-blob-1 {
+    position: absolute;
+    top: -5%; right: -15%;
+    width: 600px; height: 600px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 30% 30%, rgba(232, 85, 31, 0.22), transparent 70%);
+    filter: blur(50px);
+    pointer-events: none;
+    animation: blobFloat 24s ease-in-out infinite;
+  }
+
+  .page-header-blob-2 {
+    position: absolute;
+    bottom: -30%; left: -10%;
+    width: 450px; height: 450px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 70% 40%, rgba(143, 160, 136, 0.28), transparent 70%);
+    filter: blur(60px);
+    pointer-events: none;
+    animation: blobFloat 28s ease-in-out infinite reverse;
+  }
+
+  @keyframes blobFloat {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    50% { transform: translate(-30px, 20px) scale(1.06); }
+  }
+
+  .page-header-label {
+    position: relative; z-index: 1;
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    color: var(--orange);
+    font-weight: 600;
+    text-transform: uppercase;
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .page-header-label::before {
+    content: '';
+    width: 20px; height: 1px;
+    background: var(--orange);
+  }
+
+  .page-title {
+    position: relative; z-index: 1;
+    font-family: 'Fraunces', 'Times New Roman', serif;
+    font-weight: 500;
+    font-size: clamp(56px, 8vw, 120px);
+    line-height: 1.02;
+    letter-spacing: -0.01em;
+    color: var(--ink-title);
+    max-width: 1100px;
+    margin-bottom: 32px;
+  }
+
+  .page-title em {
+    font-style: italic;
+    font-weight: 400;
+    color: var(--orange);
+  }
+
+  .page-subtitle {
+    position: relative; z-index: 1;
+    font-size: clamp(18px, 1.5vw, 22px);
+    line-height: 1.5;
+    color: var(--ink-soft);
+    max-width: 720px;
+    font-weight: 400;
+  }
+
+  /* SECTION */
+  .section-label {
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    color: var(--orange);
+    font-weight: 600;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .section-label::before {
+    content: '';
+    width: 20px; height: 1px;
+    background: var(--orange);
+  }
+
+  /* BUTTONS */
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 16px 28px;
+    font-family: inherit;
+    font-size: 15px;
+    font-weight: 500;
+    text-decoration: none;
+    border-radius: 100px;
+    transition: all 0.3s cubic-bezier(.4,.0,.2,1);
+    cursor: pointer;
+    border: none;
+    letter-spacing: -0.01em;
+  }
+
+  .btn-primary { background: var(--ink); color: var(--cream); }
+  .btn-primary:hover { background: var(--orange); transform: translateY(-2px); }
+
+  .btn-secondary {
+    background: transparent;
+    color: var(--ink);
+    border: 1.5px solid var(--ink);
+  }
+  .btn-secondary:hover {
+    background: var(--ink);
+    color: var(--cream);
+    transform: translateY(-2px);
+  }
+
+  /* TOC SECTION */
+  .toc-section {
+    background: var(--cream);
+    border-top: 1px solid var(--line);
+    padding: 60px 48px;
+  }
+
+  .toc-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+
+  .toc-item {
+    padding: 24px 0;
+    border-top: 1px solid var(--line);
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    transition: all 0.3s ease;
+  }
+
+  .toc-item:hover { border-top-color: var(--orange); }
+
+  .toc-num {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-size: 14px;
+    color: var(--orange);
+  }
+
+  .toc-title {
+    font-family: 'Fraunces', 'Times New Roman', serif;
+    font-weight: 500;
+    font-size: 22px;
+    color: var(--ink-title);
+    letter-spacing: 0;
+    line-height: 1.1;
+  }
+
+  .toc-meta {
+    font-size: 12px;
+    color: var(--muted);
+    letter-spacing: 0.05em;
+  }
+
+  /* SUPPORT BLOCK (un canale per blocco) */
+  .support-block {
+    padding: 100px 48px;
+    position: relative;
+    overflow: hidden;
+    border-top: 1px solid var(--line);
+  }
+
+  .support-block.cream-deep { background: var(--cream-deep); }
+  .support-block.sage-soft { background: linear-gradient(135deg, #EDF0E8 0%, #DCE3D5 100%); }
+  .support-block.clay-soft { background: linear-gradient(135deg, #F5EADB 0%, #E8D9C0 100%); }
+  .support-block.warm-soft { background: linear-gradient(135deg, #F2D8B8 0%, #E8B98A 100%); }
+
+  .support-block::before {
+    content: '';
+    position: absolute;
+    top: -20%; right: -10%;
+    width: 500px; height: 500px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(232, 85, 31, 0.22), transparent 70%);
+    filter: blur(60px);
+    pointer-events: none;
+  }
+
+  .support-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    max-width: 1400px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+    align-items: start;
+  }
+
+  .support-info .section-label { margin-bottom: 28px; }
+
+  .support-info h2 {
+    font-family: 'Fraunces', 'Times New Roman', serif;
+    font-weight: 500;
+    font-size: clamp(46px, 6vw, 80px);
+    line-height: 1.02;
+    letter-spacing: -0.01em;
+    color: var(--ink-title);
+    margin-bottom: 32px;
+  }
+
+  .support-info h2 em {
+    font-style: normal;
+    color: var(--orange);
+  }
+
+  .support-intro {
+    font-size: 19px;
+    line-height: 1.55;
+    color: var(--ink-soft);
+    margin-bottom: 32px;
+  }
+
+  .support-body {
+    font-size: 16px;
+    line-height: 1.7;
+    color: var(--ink-soft);
+  }
+
+  .support-body p { margin-bottom: 20px; }
+  .support-body p:last-child { margin-bottom: 0; }
+  .support-body strong { color: var(--ink-title); font-weight: 600; }
+
+  .support-body ul {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 20px;
+  }
+
+  .support-body ul li {
+    position: relative;
+    padding-left: 24px;
+    margin-bottom: 10px;
+  }
+
+  .support-body ul li::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 10px;
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: var(--orange);
+  }
+
+  .support-box {
+    background: rgba(250, 245, 236, 0.5);
+    backdrop-filter: blur(10px);
+    border-radius: 24px;
+    padding: 40px;
+    border: 1px solid var(--line);
+  }
+
+  .box-title {
+    font-family: 'Fraunces', 'Times New Roman', serif;
+    font-weight: 500;
+    font-size: 26px;
+    line-height: 1.05;
+    letter-spacing: -0.005em;
+    color: var(--ink-title);
+    margin-bottom: 24px;
+  }
+
+  .box-row {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 6px;
+    padding: 20px 0;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .box-row:last-child { border-bottom: none; padding-bottom: 0; }
+  .box-row:first-of-type { padding-top: 0; }
+
+  .box-label {
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    color: var(--muted);
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+
+  .box-value {
+    font-size: 16px;
+    color: var(--ink-title);
+    line-height: 1.4;
+  }
+
+  .box-value.big {
+    font-family: 'Fraunces', 'Times New Roman', serif;
+    font-weight: 500;
+    font-size: 36px;
+    line-height: 1;
+    letter-spacing: 0;
+    color: var(--orange);
+  }
+
+  .box-value.mono {
+    font-family: 'Courier New', monospace;
+    font-size: 15px;
+    letter-spacing: -0.01em;
+    color: var(--ink);
+  }
+
+  .tax-highlight {
+    background: rgba(232, 85, 31, 0.08);
+    border-left: 3px solid var(--orange);
+    padding: 20px 24px;
+    border-radius: 8px;
+    margin: 24px 0;
+    font-size: 15px;
+    line-height: 1.55;
+    color: var(--ink-soft);
+  }
+
+  .tax-highlight strong { color: var(--orange-deep); }
+
+  /* FAQ SECTION */
+  .faq-section {
+    padding: 100px 48px;
+    background: var(--cream);
+    border-top: 1px solid var(--line);
+  }
+
+  .faq-header {
+    max-width: 900px;
+    margin-bottom: 60px;
+  }
+
+  .faq-title {
+    font-family: 'Fraunces', 'Times New Roman', serif;
+    font-weight: 500;
+    font-size: clamp(36px, 4.5vw, 58px);
+    line-height: 1.08;
+    letter-spacing: -0.01em;
+    color: var(--ink-title);
+    margin-top: 20px;
+  }
+
+  .faq-title em { font-style: normal; color: var(--orange); }
+
+  .faq-list {
+    max-width: 900px;
+  }
+
+  .faq-item {
+    border-top: 1px solid var(--line);
+    padding: 28px 0;
+  }
+
+  .faq-item:last-child { border-bottom: 1px solid var(--line); }
+
+  .faq-q {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 600;
+    font-size: clamp(18px, 1.8vw, 22px);
+    line-height: 1.3;
+    color: var(--ink-title);
+    margin-bottom: 14px;
+    letter-spacing: -0.01em;
+  }
+
+  .faq-a {
+    font-size: 16px;
+    line-height: 1.65;
+    color: var(--ink-soft);
+  }
+
+  .faq-a strong { color: var(--ink-title); }
+
+  /* FOOTER */
+  footer {
+    background: var(--ink);
+    color: var(--cream);
+    padding: 80px 48px 40px;
+  }
+
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 80px;
+    margin-bottom: 60px;
+  }
+
+  .footer-brand .logo { color: var(--cream); margin-bottom: 24px; }
+  .footer-brand .logo-ets { color: rgba(250, 245, 236, 0.5); }
+
+  .footer-desc {
+    font-size: 15px;
+    line-height: 1.55;
+    color: rgba(250, 245, 236, 0.65);
+    max-width: 380px;
+    margin-top: 20px;
+  }
+
+  .footer-col h4 {
+    font-family: 'Outfit', sans-serif;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgba(250, 245, 236, 0.5);
+    margin-bottom: 20px;
+  }
+
+  .footer-col ul { list-style: none; }
+  .footer-col li { margin-bottom: 12px; }
+
+  .footer-col a {
+    color: var(--cream);
+    text-decoration: none;
+    font-size: 15px;
+    transition: color 0.2s ease;
+  }
+
+  .footer-col a:hover { color: var(--clay); }
+
+  .footer-bottom {
+    padding-top: 32px;
+    border-top: 1px solid rgba(250, 245, 236, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 12px;
+    color: rgba(250, 245, 236, 0.5);
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+
+  @media (max-width: 900px) {
+    nav { padding: 16px 24px; }
+    .nav-links { display: none; }
+    .mobile-toggle {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 8px;
+    }
+    .mobile-toggle span {
+      width: 24px; height: 1.5px;
+      background: var(--ink);
+    }
+    .page-header { padding: 140px 24px 60px; }
+    .support-block, .faq-section { padding: 60px 24px; }
+    .toc-section { padding: 40px 24px; }
+    .support-content { grid-template-columns: 1fr; gap: 40px; }
+    .toc-grid { grid-template-columns: 1fr; gap: 0; }
+    .support-box { padding: 28px; }
+    .footer-grid { grid-template-columns: 1fr; gap: 40px; }
+    footer { padding: 60px 24px 30px; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="logo">
+    <span class="logo-mark"></span>
+    Habitat
+    <span class="logo-ets">ETS</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="chi-siamo.html">Chi siamo</a></li>
+    <li><a href="cosa-facciamo.html">Cosa facciamo</a></li>
+    <li><a href="sostienici.html" class="active">Sostienici</a></li>
+    <li><a href="#" class="external">Festival</a></li>
+    <li><a href="contatti.html">Contatti</a></li>
+    <li class="nav-lang">IT</li>
+  </ul>
+  <button class="mobile-toggle" aria-label="Apri menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- PAGE HEADER -->
+<header class="page-header">
+  <div class="page-header-blob-1"></div>
+  <div class="page-header-blob-2"></div>
+
+  <div class="page-header-label">Sostienici</div>
+  <h1 class="page-title">Insieme, <em>rigeneriamo</em><br>Reggio Emilia.</h1>
+  <p class="page-subtitle">
+    Habitat ETS è un Ente del Terzo Settore senza scopo di lucro. Il contributo di aziende,
+    enti e privati ci permette di mantenere gratuiti i nostri eventi, creare occupazione
+    culturale per giovani professionisti e continuare a riattivare spazi urbani
+    sottoutilizzati. Tutti i contributi godono di importanti agevolazioni fiscali.
+  </p>
+</header>
+
+<!-- TOC -->
+<section class="toc-section">
+  <div class="toc-grid">
+    <a href="#donazioni" class="toc-item">
+      <span class="toc-num">01</span>
+      <span class="toc-title">Donazioni liberali</span>
+      <span class="toc-meta">Per privati e aziende</span>
+    </a>
+    <a href="#sponsorizzazioni" class="toc-item">
+      <span class="toc-num">02</span>
+      <span class="toc-title">Sponsorizzazioni</span>
+      <span class="toc-meta">Per aziende</span>
+    </a>
+    <a href="#cinque-per-mille" class="toc-item">
+      <span class="toc-num">03</span>
+      <span class="toc-title">5 × 1000</span>
+      <span class="toc-meta">In dichiarazione dei redditi</span>
+    </a>
+  </div>
+</section>
+
+<!-- CANALE 1: DONAZIONI -->
+<section class="support-block clay-soft" id="donazioni">
+  <div class="support-content">
+    <div class="support-info">
+      <div class="section-label">01 · Per privati e aziende</div>
+      <h2>Donazioni <em>liberali</em></h2>
+      <p class="support-intro">
+        Una donazione liberale è un contributo libero e disinteressato a favore di Habitat ETS.
+        Può essere fatta da privati o aziende, con importo a scelta, in qualsiasi momento
+        dell'anno.
+      </p>
+      <div class="support-body">
+        <p>
+          La donazione alimenta direttamente i nostri progetti di rigenerazione urbana,
+          contribuisce a mantenere l'ingresso gratuito ai nostri eventi e sostiene la
+          retribuzione dei giovani professionisti coinvolti nelle produzioni.
+        </p>
+
+        <div class="tax-highlight">
+          <strong>Vantaggi fiscali per chi dona:</strong><br>
+          <strong>Privati</strong>: detrazione IRPEF del 30% fino a 30.000€ annui, oppure
+          deduzione fino al 10% del reddito complessivo dichiarato.<br>
+          <strong>Imprese</strong>: deducibilità del 10% del reddito d'impresa, fino a
+          70.000€ annui.
+        </div>
+
+        <p>
+          Per beneficiare delle agevolazioni fiscali, la donazione deve essere effettuata
+          tramite <strong>bonifico bancario, carta di credito, bollettino postale</strong> o
+          altri strumenti tracciabili. Conserva la ricevuta per la dichiarazione dei redditi.
+        </p>
+      </div>
+    </div>
+    <div>
+      <div class="support-box">
+        <h3 class="box-title">Come donare</h3>
+        <div class="box-row">
+          <div class="box-label">Beneficiario</div>
+          <div class="box-value">Habitat ETS</div>
+        </div>
+        <div class="box-row">
+          <div class="box-label">IBAN</div>
+          <div class="box-value mono">IT59 L070 7212 8020 0000 0076 6996</div>
+        </div>
+        <div class="box-row">
+          <div class="box-label">Causale</div>
+          <div class="box-value">Erogazione liberale a Habitat ETS</div>
+        </div>
+        <div class="box-row">
+          <div class="box-label">Codice fiscale</div>
+          <div class="box-value mono">91204200355</div>
+        </div>
+        <div class="box-row">
+          <div class="box-label">Detrazione IRPEF</div>
+          <div class="box-value big">30%</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CANALE 2: SPONSORIZZAZIONI -->
+<section class="support-block sage-soft" id="sponsorizzazioni">
+  <div class="support-content">
+    <div class="support-info">
+      <div class="section-label">02 · Per aziende</div>
+      <h2>Sponsorizzazioni <em>aziendali</em></h2>
+      <p class="support-intro">
+        Una sponsorizzazione è un accordo di partnership strategica con valore commerciale e
+        reputazionale. Offriamo alle aziende visibilità all'interno di progetti culturali ad
+        alto impatto sociale e territoriale.
+      </p>
+      <div class="support-body">
+        <p>
+          Sponsorizzare un progetto di Habitat ETS significa associare il proprio brand a un
+          percorso di rigenerazione urbana riconosciuto dal Comune di Reggio Emilia e con
+          forte radicamento territoriale. È particolarmente adatto ad aziende che integrano
+          strategie di <strong>Corporate Social Responsibility</strong> e criteri
+          <strong>ESG</strong>.
+        </p>
+
+        <p><strong>Vantaggi per l'azienda sponsor:</strong></p>
+        <ul>
+          <li>Visibilità del marchio su tutti i materiali di comunicazione (digitale, stampa, eventi)</li>
+          <li>Presenza nei credits delle produzioni audiovisive HBT Open Air</li>
+          <li>Esposizione fisica all'interno del Parco Innovazione durante il festival</li>
+          <li>Associazione con progettualità culturale, giovanile e territoriale</li>
+          <li>Partecipazione a iniziative di team building e hospitality aziendale</li>
+        </ul>
+
+        <div class="tax-highlight">
+          <strong>Vantaggi fiscali:</strong> le sponsorizzazioni aziendali sono
+          <strong>interamente deducibili</strong> come spese di pubblicità ai fini IRES e IRAP
+          secondo la normativa vigente.
+        </div>
+
+        <p>
+          I pacchetti di sponsorizzazione sono <strong>modulabili e personalizzabili</strong>
+          in base agli obiettivi di comunicazione dell'azienda. Contattaci per ricevere la
+          nostra proposta di partnership.
+        </p>
+      </div>
+      <div style="margin-top: 32px;">
+        <a href="contatti.html" class="btn btn-primary">Richiedi la proposta di partnership →</a>
+      </div>
+    </div>
+    <div>
+      <div class="support-box">
+        <h3 class="box-title">Livelli di partnership</h3>
+        <div class="box-row">
+          <div class="box-label">Main Partner</div>
+          <div class="box-value">Visibilità massima, presenza esclusiva in categoria merceologica</div>
+        </div>
+        <div class="box-row">
+          <div class="box-label">Official Partner</div>
+          <div class="box-value">Presenza integrata in comunicazione e area evento</div>
+        </div>
+        <div class="box-row">
+          <div class="box-label">Technical Partner</div>
+          <div class="box-value">Fornitura di beni o servizi in cambio di visibilità</div>
+        </div>
+        <div class="box-row">
+          <div class="box-label">Community Partner</div>
+          <div class="box-value">Supporto al progetto con visibilità essenziale</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CANALE 3: 5X1000 -->
+<section class="support-block cream-deep" id="cinque-per-mille">
+  <div class="support-content">
+    <div class="support-info">
+      <div class="section-label">03 · In dichiarazione dei redditi</div>
+      <h2>5 <em>×</em> 1000</h2>
+      <p class="support-intro">
+        Il 5×1000 è una quota dell'IRPEF che ogni contribuente può destinare a un Ente del
+        Terzo Settore a propria scelta. Non costa nulla: è una parte delle tasse che già
+        paghi, che tu decidi dove far andare.
+      </p>
+      <div class="support-body">
+        <p>
+          Destinando il 5×1000 ad Habitat ETS contribuisci concretamente alla crescita di un
+          progetto culturale radicato nel territorio reggiano, senza alcuna spesa aggiuntiva.
+        </p>
+
+        <p><strong>Come fare:</strong></p>
+        <ul>
+          <li>In fase di dichiarazione dei redditi (modello 730, CU, Redditi PF)</li>
+          <li>Firma nella sezione "Sostegno del volontariato e delle altre organizzazioni non lucrative di utilità sociale"</li>
+          <li>Inserisci il nostro <strong>codice fiscale</strong> nello spazio apposito</li>
+        </ul>
+
+        <div class="tax-highlight">
+          <strong>Importante:</strong> il 5×1000 non sostituisce l'8×1000 e non aumenta le
+          tasse da pagare. È una redistribuzione di quanto già dovuto allo Stato.
+        </div>
+      </div>
+    </div>
+    <div>
+      <div class="support-box">
+        <h3 class="box-title">Destina il tuo 5×1000</h3>
+        <div class="box-row">
+          <div class="box-label">Beneficiario</div>
+          <div class="box-value">Habitat ETS</div>
+        </div>
+        <div class="box-row">
+          <div class="box-label">Codice fiscale</div>
+          <div class="box-value mono">91204200355</div>
+        </div>
+        <div class="box-row">
+          <div class="box-label">Settore</div>
+          <div class="box-value">Ente del Terzo Settore (ETS)</div>
+        </div>
+        <div class="box-row">
+          <div class="box-label">Costo per te</div>
+          <div class="box-value big">0 €</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq-section">
+  <div class="faq-header">
+    <div class="section-label">Domande frequenti</div>
+    <h2 class="faq-title">Le risposte ai dubbi <em>più comuni</em>.</h2>
+  </div>
+
+  <div class="faq-list">
+    <div class="faq-item">
+      <div class="faq-q">Qual è la differenza tra donazione e sponsorizzazione?</div>
+      <div class="faq-a">
+        La <strong>donazione liberale</strong> è un contributo senza contropartite commerciali
+        dirette: dona chi vuole sostenere la nostra missione. La <strong>sponsorizzazione</strong>
+        invece è un rapporto commerciale con obblighi reciproci (visibilità del brand in
+        cambio del contributo) e ha una natura contrattuale specifica.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q">Posso donare anche importi piccoli?</div>
+      <div class="faq-a">
+        Certamente. Non esiste un importo minimo. Ogni contributo, anche modesto, ci aiuta
+        a mantenere gratuiti i nostri eventi e a sostenere i progetti culturali sul territorio.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q">Ricevo una ricevuta per la donazione?</div>
+      <div class="faq-a">
+        Sì. Al ricevimento della donazione, Habitat ETS emette una <strong>ricevuta fiscale
+        nominativa</strong> valida per la dichiarazione dei redditi. La ricevuta viene inviata
+        via email entro pochi giorni dal versamento.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q">La mia azienda può collaborare come partner tecnico?</div>
+      <div class="faq-a">
+        Assolutamente sì. Le <strong>partnership tecniche</strong> (fornitura di beni o
+        servizi in cambio di visibilità) sono una modalità molto apprezzata dalle aziende
+        del territorio. Contattaci per valutare insieme le possibilità.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q">Posso destinare il mio 5×1000 anche se pago poche tasse?</div>
+      <div class="faq-a">
+        Sì. Il 5×1000 è una quota dell'IRPEF: se paghi l'IRPEF, anche in misura minima, puoi
+        destinare il tuo 5×1000. Se hai un reddito esente, il 5×1000 non è invece applicabile.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q">Ho ancora dubbi o voglio parlare con qualcuno.</div>
+      <div class="faq-a">
+        Per qualsiasi informazione aggiuntiva puoi scriverci all'indirizzo email istituzionale
+        disponibile nella pagina <a href="contatti.html" style="color: var(--orange); text-decoration: underline;">Contatti</a>.
+        Ti risponderemo entro pochi giorni lavorativi.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA FINALE -->
+<section class="support-block warm-soft">
+  <div class="support-content" style="grid-template-columns: 1fr; max-width: 1000px;">
+    <div>
+      <div class="section-label">Pronto a iniziare?</div>
+      <h2 style="font-family: 'Fraunces', 'Times New Roman', serif; font-weight: 500; font-size: clamp(46px, 6vw, 80px); line-height: 1.02; letter-spacing: -0.01em; color: var(--ink-title); margin-top: 20px; margin-bottom: 32px;">
+        Sostieni <em style="font-style: normal; color: var(--orange);">Habitat ETS</em>.
+      </h2>
+      <p style="font-size: 18px; line-height: 1.55; color: var(--ink-soft); margin-bottom: 40px; max-width: 640px;">
+        Contattaci per ricevere maggiori informazioni, richiedere la nostra proposta di
+        partnership o semplicemente chiederci di più sui progetti che sostieni.
+      </p>
+      <div style="display: flex; gap: 14px; flex-wrap: wrap;">
+        <a href="contatti.html" class="btn btn-primary">Contattaci →</a>
+        <a href="cosa-facciamo.html" class="btn btn-secondary">Scopri i nostri progetti</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <a href="index.html" class="logo">
+        <span class="logo-mark"></span>
+        Habitat
+        <span class="logo-ets">ETS</span>
+      </a>
+      <p class="footer-desc">
+        Collettivo culturale di Reggio Emilia. Dal 2018 riattiviamo il patrimonio urbano
+        sottoutilizzato attraverso la progettazione culturale, l'inclusione sociale e la
+        valorizzazione del territorio.
+      </p>
+    </div>
+    <div class="footer-col">
+      <h4>Naviga</h4>
+      <ul>
+        <li><a href="chi-siamo.html">Chi siamo</a></li>
+        <li><a href="cosa-facciamo.html">Cosa facciamo</a></li>
+        <li><a href="sostienici.html">Sostienici</a></li>
+        <li><a href="contatti.html">Contatti</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Contatti</h4>
+      <ul>
+        <li><a href="mailto:info@hbt-re.com">info@hbt-re.com</a></li>
+        <li><a href="tel:+393405897588">+39 340 589 7588</a></li>
+        <li><a href="https://www.instagram.com/habitat_ets/" target="_blank" rel="noopener">Instagram ↗</a></li>
+        <li><a href="https://linktr.ee/HBT_Family" target="_blank" rel="noopener">Linktree HBT ↗</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div>© 2026 Habitat ETS · Sede legale in Reggio Emilia</div>
+    <div>Designed with care in Reggio Emilia</div>
+  </div>
+</footer>
+
+</body>
+</html>
