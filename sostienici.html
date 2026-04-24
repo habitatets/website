@@ -962,5 +962,33 @@
   </div>
 </footer>
 
+
+<script>
+  const toggle = document.querySelector('.mobile-toggle');
+  const navLinks = document.querySelector('.nav-links');
+  if (toggle && navLinks) {
+    toggle.addEventListener('click', function() {
+      const isOpen = navLinks.style.display === 'flex';
+      navLinks.style.display = isOpen ? 'none' : 'flex';
+      navLinks.style.flexDirection = 'column';
+      navLinks.style.position = 'absolute';
+      navLinks.style.top = '100%';
+      navLinks.style.left = '0';
+      navLinks.style.right = '0';
+      navLinks.style.background = 'var(--cream)';
+      navLinks.style.padding = '20px 24px';
+      navLinks.style.gap = '20px';
+      navLinks.style.borderBottom = '1px solid var(--line)';
+      navLinks.style.zIndex = '100';
+      toggle.setAttribute('aria-expanded', !isOpen);
+    });
+    // Chiudi menu quando clicchi un link
+    navLinks.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        navLinks.style.display = 'none';
+      });
+    });
+  }
+</script>
 </body>
 </html>
